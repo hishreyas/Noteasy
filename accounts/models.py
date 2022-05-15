@@ -38,6 +38,12 @@ class UserManager(BaseUserManager):
         return user
 
 
+def has_perm(perm, obj=None):
+    "Does the user have a specific permission?"
+    # Simplest possible answer: Yes, always
+    return True
+
+
 class User(AbstractBaseUser):
     first_name = models.TextField(max_length=100)
     last_name = models.TextField(max_length=100)
@@ -55,15 +61,14 @@ class User(AbstractBaseUser):
     def __str__(self):
         return self.username
 
-    def has_perm(self, perm, obj=None):
-        "Does the user have a specific permission?"
-        # Simplest possible answer: Yes, always
-        return True
-
     def has_module_perms(self, app_label):
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
+   
+    def has_perm(self, perm, obj=None):
+     return self.is_admin
+
 
     @property
     def is_staff(self):

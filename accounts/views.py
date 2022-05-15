@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
-from .forms import SignUpForm
+from .forms import SignUpForm,UserUpdateForm
 
 from django.contrib.auth.decorators import login_required
 from accounts.models import User
@@ -27,8 +27,7 @@ def signup(request):
 
 @method_decorator(login_required, name='dispatch')
 class UserUpdateView(UpdateView):
-    model = User
-    fields = ('first_name','course', 'last_name','email')
+    form_class = UserUpdateForm
     template_name = 'accounts/my_account.html'
     success_url = reverse_lazy('accounts:my_account')
 

@@ -43,7 +43,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('first_name','last_name','username','email','course')
+        fields = ('first_name','last_name','email','course')
 
 
 class UserAdmin(BaseUserAdmin):
@@ -74,5 +74,5 @@ class UserAdmin(BaseUserAdmin):
 
 # ... and, since we're not using Django's built-in permissions,
 # unregister the Group model from admin.
-admin.register(UserAdmin)
+admin.site.register(User)
 admin.site.unregister(Group)

@@ -27,9 +27,12 @@ class UserNoticeListView(LoginRequiredMixin, ListView):
 	context_object_name = 'notices'
 	template_name = 'notices/notices_by_user.html'
 	paginate_by = 10
+	
 
 	def get_context_data(self, **kwargs):
-		return super().get_context_data(**kwargs)
+		context_data = super().get_context_data(**kwargs)		
+		context_data['user'] = self.kwargs['user']
+		return context_data
 
 	def get_queryset(self):
 		self.user = get_object_or_404(User, username=self.kwargs['user'])
