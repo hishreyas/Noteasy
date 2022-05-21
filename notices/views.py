@@ -31,12 +31,12 @@ class UserNoticeListView(LoginRequiredMixin, ListView):
 
 	def get_context_data(self, **kwargs):
 		context_data = super().get_context_data(**kwargs)		
-		context_data['user'] = self.kwargs['user']
+		context_data['selected_user'] = self.kwargs['selected_user']
 		return context_data
 
 	def get_queryset(self):
-		self.user = get_object_or_404(User, username=self.kwargs['user'])
-		return Notice.objects.filter(created_by=self.user).order_by('-created_at')
+		self.selected_user = get_object_or_404(User, username=self.kwargs['selected_user'])
+		return Notice.objects.filter(created_by=self.selected_user).order_by('-created_at')
 
 
 class TagView(LoginRequiredMixin, ListView):

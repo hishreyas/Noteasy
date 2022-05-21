@@ -15,7 +15,23 @@ class Notice(models.Model):
 		return self.title
 
 	def get_message_as_markdown(self):
-		return mark_safe(markdown(self.message, safe_mode='escape'))       
+		return mark_safe(markdown(self.message, safe_mode='escape', extensions=['tables','fenced_code']))
+
+	def get_prefix_name(self):
+		if(self.created_by.first_name!=None and self.created_by.last_name!=None):
+			return self.created_by.first_name[0] + self.created_by.last_name[0]
+
+		if(self.created_by.first_name!=None):
+			return self.created_by.first_name[0]
+
+		if(self.created_by.last_name!=None):
+		   return self.created_by.last_name[0]
+		   
+		return self.created_by.username[0]
+		
+		
+
+	       
 
 	def get_tags_as_list(self):
 		return self.tags.split(",")[:-1]
