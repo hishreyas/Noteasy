@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-3p8r$q=ot5esb&7izalkj-7d%u#1b$s3$z!!+!5p0yn&yrd694
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://noteeasyweb.herokuapp.com","localhost"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
