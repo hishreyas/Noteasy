@@ -2,3 +2,4 @@ django==4.0.4
 django-widgets-improved==1.5.0
 markdown==2.6.11
 psycopg2==2.9.3
+whitenoise==6.1.0
