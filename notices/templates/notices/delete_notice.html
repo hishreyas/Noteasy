@@ -1,0 +1,28 @@
+{% extends 'notices/base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}U Notice{% endblock %}
+{% load static %}
+{% block content %}
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    
+<script type="text/javascript">
+
+$( document ).ready(function() {
+    $('#notice_delete').submit();
+});
+
+             
+    </script>
+<form id="notice_delete" method="post" novalidate class="mt-5">
+    {% csrf_token %}
+</form>
+
+  
+
+
+
+{% endblock %}
+
+

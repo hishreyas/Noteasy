@@ -2,9 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import Http404
-from .models import Notice, User
-from .forms import NewNoticeForm
-from django.views.generic import ListView, UpdateView
+from .models import Notice, User,Course
+from .forms import NewNoticeForm,ChangeNoticeForm
+from django.utils.decorators import method_decorator
+from django.urls import reverse_lazy
+from django.views.generic import ListView, UpdateView,DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 def landingPage(request):
@@ -34,12 +36,12 @@ class UserNoticeListView(LoginRequiredMixin, ListView):
 
 	def get_context_data(self, **kwargs):
 		context_data = super().get_context_data(**kwargs)		
-		context_data['user'] = self.kwargs['user']
+		context_data['selected_user'] = self.kwargs['selected_user']
 		return context_data
 
 	def get_queryset(self):
-		self.user = get_object_or_404(User, username=self.kwargs['user'])
-		return Notice.objects.filter(created_by=self.user).order_by('-created_at')
+		self.selected_user = get_object_or_404(User, username=self.kwargs['selected_user'])
+		return Notice.objects.filter(created_by=self.selected_user).order_by('-created_at')
 
 
 class TagView(LoginRequiredMixin, ListView):
@@ -76,6 +78,8 @@ def NewNoticePage(request):
 		if form.is_valid():
 			notice = form.save(commit=False)
 			notice.created_by = request.user
+			if(request.user.course not in  notice.tags ):
+				notice.tags=notice.tags+request.user.course+','
 			notice.save()
 			return redirect('notices:notice_page', notice_id=notice.pk) 
 	else:
@@ -83,3 +87,42 @@ def NewNoticePage(request):
 	return render(request, 'notices/new_notice.html', {'form': form})
 
 
+@method_decorator(login_required, name='dispatch')
+class NoticeChangeView(UpdateView):
+	form_class = ChangeNoticeForm
+	template_name = 'notices/update_notice.html'
+
+	def get_context_data(self, **kwargs):
+		context_data = super().get_context_data(**kwargs)		
+		context_data['notice_id'] = self.kwargs['notice_id']
+		return context_data
+		
+	def get_success_url(self):
+		return reverse_lazy('notices:notice_page',kwargs={'notice_id': self.kwargs['notice_id']})	
+	
+	def get_object(self):
+		notice = get_object_or_404(Notice, id = self.kwargs['notice_id'])
+		if(self.request.user.id==notice.created_by.id):
+			return notice
+		else:
+			raise ValueError('No permission to perform task'	)
+
+@method_decorator(login_required, name='dispatch')
+class NoticeDeleteView(DeleteView):
+	template_name = 'notices/delete_notice.html'
+
+	def get_context_data(self, **kwargs):
+		context_data = super().get_context_data(**kwargs)		
+		context_data['notice_id'] = self.kwargs['notice_id']
+		return context_data
+		
+	def get_success_url(self):
+		return reverse_lazy('notices:home')	
+	
+	def get_object(self):
+		notice = get_object_or_404(Notice, id = self.kwargs['notice_id'])
+		if(self.request.user.id==notice.created_by.id):
+			return notice
+		else:
+			raise ValueError('No permission to perform task'	)			
+			
