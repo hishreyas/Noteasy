@@ -172,6 +172,9 @@ table th {
                         {% if user.is_staff %}
                          <a href="{% url 'notices:new_notice'%}" class="btn btn-primary mx-2">New notice</a>
                         {% endif %}
+                        {% if user.is_staff %}
+                         <a href="{% url 'notices:user_notices' user.username %}" class="btn btn-primary mx-2">My notices</a>
+                        {% endif %}
                          <a href="{% url 'notices:tags'%}" class="btn btn-primary mx-2">Filters</a>
                         </form>
 

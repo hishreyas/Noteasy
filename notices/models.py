@@ -1,5 +1,5 @@
 from django.db import models
-from accounts.models import  User
+from accounts.models import  User,Course
 from django.utils.html import mark_safe
 from markdown import markdown
 
