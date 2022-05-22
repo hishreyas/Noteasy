@@ -9,6 +9,8 @@ class Course(models.TextChoices):
     SYBCS = 'SY19', ('SYB.sc Computer science')
     TYBCS = 'TY19', ('TYB.sc Computer science')
 
+   
+
 
 class UserManager(BaseUserManager):
     def create_user(self,username,email,password=None):
