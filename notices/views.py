@@ -7,6 +7,9 @@ from .forms import NewNoticeForm
 from django.views.generic import ListView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+def landingPage(request):
+	return render(request,'notices/landing_page.html')
+
 class NoticeListView(ListView):
 	model = Notice
 	context_object_name = 'notices'

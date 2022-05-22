@@ -1,4 +1,5 @@
 from django.contrib.auth import login
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import SignUpForm,UserUpdateForm
 
@@ -7,7 +8,6 @@ from accounts.models import User
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import UpdateView
-
 
 def signup(request):
     if request.user.is_authenticated:

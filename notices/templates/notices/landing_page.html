@@ -1,0 +1,45 @@
+{% extends 'notices/base.html' %}
+
+{% load humanize %}
+{% load static %}
+{% block title %}
+  Home - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<html>
+<body>
+<div class="vertical-center text-center mt-xl-5 d-inline-block">
+<img class="rounded mx-auto d-block mt-sm-4" src="{% static 'img/logo.png' %}">
+
+<h2 class="mt-xl-5">View, Share and save notices <br>anytime with ease.</h2>
+
+<h5 class="mt-xl-5">NoteEasy  is online platform for Wadia College Pune Computer science department to organise notice in effecient manner,
+    Our tool helps both students and teacher to manage notice effeciently <br>with minimal efforts</h5>
+
+<a href="{% url 'accounts:login' %}" class="btn btn-outline-secondary btn-lg mt-xl-5" role="button" aria-pressed="true">Start for free</a>
+<div class="row mt-xl-5">
+    <div class="col">
+        <img class="rounded mx-auto d-block " src="{% static 'img/all_in_one.png' %}">
+        <h2>All in one place</h2>
+    </div>
+    <div class="col">
+        <img class="rounded mx-auto d-block " src="{% static 'img/easy.png' %}">
+        <h2>Easy to use</h2>
+    </div>
+    <div class="col">
+        <img class="rounded mx-auto d-block " src="{% static 'img/globe.png' %}">
+        <h2>Access from anywhere</h2>
+    </div>
+    <div class="col">
+        <img class="rounded mx-auto d-block " src="{% static 'img/verified.png' %}">
+        <h2>Verified information</h2>
+    </div>
+</div>
+<p class=" fixed-bottom">Copyright ©2022 Sanedroid.tech | All right reserved.</p>
+</div>
+</body>
+</html>
+
+
+{%endblock%}
