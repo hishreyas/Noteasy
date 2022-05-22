@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3p8r$q=ot5esb&7izalkj-7d%u#1b$s3$z!!+!5p0yn&yrd694'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://noteeasyweb.herokuapp.com","localhost"]
 
 
 # Application definition
@@ -90,13 +90,13 @@ DATABASES = {
           
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'postgres',
+        'NAME': 'd5pv34o51qidv6',
 
-        'USER': 'postgres',
+        'USER': 'eytxqlsugscbfk',
 
-        'PASSWORD': '',
+        'PASSWORD': '7b9398500668b1cae839016ae1db034fde9749695898657a1d367ee163b1b775',
 
-        'HOST': 'localhost',
+        'HOST': 'ec2-34-231-177-125.compute-1.amazonaws.com',
 
         'PORT': '5432'
       }
