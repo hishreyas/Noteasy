@@ -13,7 +13,7 @@ x
 
 		<div class="row p-3">
 		<h3 class=" col-6 p-3">{{ notice.title }}</h3>
-		{% if user.id == notice.created_by.id %}
+		{% if user.id == notice.created_by.id and user.is_admin%}
 		<div class="col-6 text-right">
 
 			<a href="{% url 'notices:update_notice' notice.id %}" class="btn btn-primary">Edit</a>
