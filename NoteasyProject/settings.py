@@ -88,11 +88,11 @@ DATABASES = {
           
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'Noteasy',
+        'NAME': 'postgres',
 
         'USER': 'postgres',
 
-        'PASSWORD': '090500',
+        'PASSWORD': '',
 
         'HOST': 'localhost',
 
