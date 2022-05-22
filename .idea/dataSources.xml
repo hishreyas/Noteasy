@@ -7,7 +7,15 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/NoteasyProject/settings.py</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ec2-34-231-177-125.compute-1.amazonaws.com:5432/d5pv34o51qidv6</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="Postgres Data Source" uuid="ec3509d4-b30f-4180-875d-6946be0c99d9">
+      <driver-ref>java.sql.Driver</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>postgres://eytxqlsugscbfk:7b9398500668b1cae839016ae1db034fde9749695898657a1d367ee163b1b775@ec2-34-231-177-125.compute-1.amazonaws.com:5432/d5pv34o51qidv6</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
