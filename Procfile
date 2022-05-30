@@ -1,1 +1,0 @@
-web: gunicorn NoteasyProject.wsgi --log-file -

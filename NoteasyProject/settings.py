@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +25,7 @@ SECRET_KEY = 'django-insecure-3p8r$q=ot5esb&7izalkj-7d%u#1b$s3$z!!+!5p0yn&yrd694
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -51,7 +50,6 @@ AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,13 +88,13 @@ DATABASES = {
           
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'd5pv34o51qidv6',
+        'NAME': 'postgres',
 
-        'USER': 'eytxqlsugscbfk',
+        'USER': 'postgres',
 
-        'PASSWORD': '7b9398500668b1cae839016ae1db034fde9749695898657a1d367ee163b1b775',
+        'PASSWORD': '',
 
-        'HOST': 'ec2-34-231-177-125.compute-1.amazonaws.com',
+        'HOST': 'localhost',
 
         'PORT': '5432'
       }
@@ -136,7 +134,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = 'static/'
 
