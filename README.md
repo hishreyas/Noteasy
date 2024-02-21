@@ -1,7 +1,5 @@
  ![](https://github.com/hishreyas/Noteasy/blob/main/notices/static/img/logo.png?raw=true)
 ***
-**Code Github repo : [NoteEasy](https://github.com/hishreyas/Noteasy/)**
-***
 
  **Abstract**
 1. **Timely Notices:**
@@ -15,6 +13,9 @@ Reduces paper usage, contributing to tree conservation and waste reduction.
 5. **Automatic Removal of Outdated Notices:**
 Ensures a clutter-free notice board by removing outdated information automatically.
 
+***
+Code Github repo : [NoteEasy](https://github.com/hishreyas/Noteasy/)
+***
 **Project time management:**
 
 + As we were working on a known tech stack i.e python django, Linux, postgreSQL. Our plan was to first outline the design of our project using figma where every team gave their inputs. After designing different screens we started programming and distributed our roles throughout the process.
