@@ -1,7 +1,8 @@
  ![](https://github.com/hishreyas/Noteasy/blob/main/notices/static/img/logo.png?raw=true)
- ***
-Code Github repo :[https://github.com/hishreyas/Noteasy/](NotEasy) 
 ***
+**Code Github repo : [NoteEasy](https://github.com/hishreyas/Noteasy/)**
+***
+
  **Abstract**
 1. **Timely Notices:**
  Prioritizes notices based on dates for timely delivery of critical information.
@@ -13,8 +14,6 @@ Integrates lecture links directly into the system for streamlined access to inst
 Reduces paper usage, contributing to tree conservation and waste reduction.
 5. **Automatic Removal of Outdated Notices:**
 Ensures a clutter-free notice board by removing outdated information automatically.
-
-***
 
 **Project time management:**
 
