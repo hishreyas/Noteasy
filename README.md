@@ -1,5 +1,7 @@
-# NoteEasy
-
+ ![](https://github.com/hishreyas/Noteasy/blob/main/notices/static/img/logo.png?raw=true)
+ ***
+Code Github repo :[https://github.com/hishreyas/Noteasy/](NotEasy) 
+***
  **Abstract**
 1. **Timely Notices:**
  Prioritizes notices based on dates for timely delivery of critical information.
